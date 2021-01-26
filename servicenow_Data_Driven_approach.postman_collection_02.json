@@ -1,0 +1,341 @@
+{
+	"info": {
+		"_postman_id": "ee5acca1-5aa6-48a9-abc0-142bd8f53a5e",
+		"name": "servicenow_Data_Driven_approach",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create_New_Incidents_00",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    const response = pm.response.json();\r",
+							"    pm.expect(response.result.short_description).to.include(pm.iterationData.get(\"sd_value\"));\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    const response = pm.response.json();\r",
+							"    pm.expect(response.result.knowledge).to.include(pm.iterationData.get(\"kledge\"));\r",
+							"\r",
+							"});\r",
+							"\r",
+							"var jsonData = JSON.parse(responseBody);\r",
+							"postman.setGlobalVariable(\"Incident_Number\", jsonData.result.number);\r",
+							"\r",
+							"pm.test(\"Validate System Class Name in the Create Incident Response\", function () {\r",
+							"    const response = pm.response.json();\r",
+							"    pm.expect(response.result.sys_class_name).to.eql('incident');\r",
+							"\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.globals.get(pm.iterationData.get(\"ctype\"));\r",
+							"\r",
+							"pm.globals.set(\"headerparam\", \"ctype\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "MQ37noQrPjrC",
+						"username": "admin"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"short_description\":\"{{sd_value}}\",\r\n\"knowledge\":\"{{kledge}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://dev91890.service-now.com/api/now/table/incident"
+			},
+			"response": []
+		},
+		{
+			"name": "Create_New_Incidents_01",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    const response = pm.response.json();\r",
+							"    pm.expect(response.result.short_description).to.include(pm.iterationData.get(\"sd_value\"));\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    const response = pm.response.json();\r",
+							"    pm.expect(response.result.knowledge).to.include(pm.iterationData.get(\"kledge\"));\r",
+							"\r",
+							"});\r",
+							"\r",
+							"var jsonData = JSON.parse(responseBody);\r",
+							"postman.setGlobalVariable(\"Incident_Number\", jsonData.result.number);\r",
+							"\r",
+							"pm.test(\"Validate System Class Name in the Create Incident Response\", function () {\r",
+							"    const response = pm.response.json();\r",
+							"    pm.expect(response.result.sys_class_name).to.eql('incident');\r",
+							"\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.globals.get(pm.iterationData.get(\"ctype\"));\r",
+							"\r",
+							"pm.globals.set(\"headerparam\", \"ctype\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "MQ37noQrPjrC",
+						"username": "admin"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"short_description\":\"{{sd_value}}\",\r\n\"knowledge\":\"{{kledge}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://dev91890.service-now.com/api/now/table/incident"
+			},
+			"response": []
+		},
+		{
+			"name": "Create_New_Incidents_02",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    const response = pm.response.json();\r",
+							"    pm.expect(response.result.short_description).to.include(pm.iterationData.get(\"sd_value\"));\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    const response = pm.response.json();\r",
+							"    pm.expect(response.result.knowledge).to.include(pm.iterationData.get(\"kledge\"));\r",
+							"\r",
+							"});\r",
+							"\r",
+							"var jsonData = JSON.parse(responseBody);\r",
+							"postman.setGlobalVariable(\"Incident_Number\", jsonData.result.number);\r",
+							"\r",
+							"pm.test(\"Validate System Class Name in the Create Incident Response\", function () {\r",
+							"    const response = pm.response.json();\r",
+							"    pm.expect(response.result.sys_class_name).to.eql('incident');\r",
+							"\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.globals.get(pm.iterationData.get(\"ctype\"));\r",
+							"\r",
+							"pm.globals.set(\"headerparam\", \"ctype\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "MQ37noQrPjrC",
+						"username": "admin"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"short_description\":\"{{sd_value}}\",\r\n\"knowledge\":\"{{kledge}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://dev91890.service-now.com/api/now/table/incident"
+			},
+			"response": []
+		},
+		{
+			"name": "Create_New_Incidents_03",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    const response = pm.response.json();\r",
+							"    pm.expect(response.result.short_description).to.include(pm.iterationData.get(\"sd_value\"));\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    const response = pm.response.json();\r",
+							"    pm.expect(response.result.knowledge).to.include(pm.iterationData.get(\"kledge\"));\r",
+							"\r",
+							"});\r",
+							"\r",
+							"var jsonData = JSON.parse(responseBody);\r",
+							"postman.setGlobalVariable(\"Incident_Number\", jsonData.result.number);\r",
+							"\r",
+							"pm.test(\"Validate System Class Name in the Create Incident Response\", function () {\r",
+							"    const response = pm.response.json();\r",
+							"    pm.expect(response.result.sys_class_name).to.eql('incident');\r",
+							"\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.globals.get(pm.iterationData.get(\"ctype\"));\r",
+							"\r",
+							"pm.globals.set(\"headerparam\", \"ctype\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "MQ37noQrPjrC",
+						"username": "admin"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"short_description\":\"{{sd_value}}\",\r\n\"knowledge\":\"{{kledge}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://dev91890.service-now.com/api/now/table/incident"
+			},
+			"response": []
+		}
+	]
+}
